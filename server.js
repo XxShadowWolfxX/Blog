@@ -10,7 +10,7 @@ var express = require("express"),
     app = express();
 
 
-app.use("/static", express.static(path.join(__dirname, "blog/client")));
+app.use("/static", express.static(path.join(__dirname, "app/client")));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(session({
-    secret: "itsAMeMario",
+    secret: "itsAMeLuigi",
     resave: true,
     saveUninitialized: true
 }));
@@ -26,7 +26,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.set("views", path.join(__dirname, "blog/views"));
+app.set("views", path.join(__dirname, "app/views"));
 app.set("view engine", "hbs");
 
 auth(passport);
