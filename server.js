@@ -3,10 +3,9 @@ var express = require("express"),
     hbs = require("hbs"),
     path = require("path"),
     session = require("express-session"),
-    mongoose = require("mongooose"),
+    mongoose = require("mongoose"),
     passport = require("passport"),
-    auth = require("./blog/auth/auth"),
-    routes = require("./blog/routes/routes"),
+    routes = require("./app/routes/routes"),
     app = express();
 
 
@@ -29,10 +28,9 @@ app.use(passport.session());
 app.set("views", path.join(__dirname, "app/views"));
 app.set("view engine", "hbs");
 
-auth(passport);
 routes(app, passport);
 
 mongoose.connect("mongodb://localhost/blog");
-app.listen(8080);
-console.log("Blog is Running");
-
+app.listen(8080, function() {
+    console.log("Blog is Running");
+});
