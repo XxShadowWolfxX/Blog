@@ -2,7 +2,8 @@
     "index": "/index",
     "login": "/login",
     "signup": "/signup",
-    "home": "/home",
+    "post" : "/post",
+    "home": "/",
     "create": "/create",
     "update": "/update",
     "delete": "/delete"
